@@ -1,11 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="has-bg">
 <head>
     <meta charset="UTF-8">
     <title>登录</title>
+    <% include ../common/common.html %>
 </head>
 <body>
-用户名：
-密码：
+<!--<% include ../header/header.html %>-->
+
+<div class="login">
+    <div class="login-choices">
+        <div class="item current">账号密码登录</div>
+        <div class="item">验证码登录</div>
+    </div>
+
+    <form class="login-form" name="loginForm">
+        <div class="user-appear">
+            <img src="/img/user-appear.png" />
+        </div>
+
+        <div class="login-form-group">
+            <input type="text"
+                   class="form-control"
+                   name="loginForm.name"
+                   placeholder="请输入账号">
+        </div>
+
+        <div class="login-form-group">
+            <input type="password"
+                   class="form-control"
+                   name="loginForm.password"
+                   placeholder="请输入密码">
+        </div>
+
+        <div class="login-submit">
+            <button class="btn btn-submit"
+                    type="button">登 录</button>
+        </div>
+    </form>
+</div>
+<!--<% include ../footer/footer.html %>-->
+
 </body>
 </html>

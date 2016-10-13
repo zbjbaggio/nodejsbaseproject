@@ -1,0 +1,67 @@
+@import "../main";
+
+@loginBgColor: #ededed;
+
+.login {
+  position: fixed;
+  .center(375px, 340px);
+  border-radius: 5px;
+  box-shadow: 0 0 8px rgba(0,0,0, 0.2);
+  background: url("@{imgSrc}/login-bg.png") left -1px no-repeat @loginBgColor;
+  overflow: hidden;
+}
+
+.login-choices{
+  .clearfix;
+  overflow: hidden;
+
+  .item{
+    position: relative;
+    z-index: 1;
+    float: left;
+    width: 50%;
+    height: 47px;
+    line-height: 46px;
+    background-color: @loginBgColor;
+    text-align: center;
+    font-size: 13px;
+    color: @disabledColor;
+    cursor: pointer;
+
+    &.current{
+      box-shadow: 0 0 5px rgba(0,0,0, 0.2);
+      border-top-right-radius: 5px;
+      border-top-left-radius: 5px;
+      background-color: transparent;
+      font-size: 15px;
+      color: @mainColor;
+      cursor: default;
+      z-index: 2;
+    }
+  }
+}
+
+.login-form{
+  display: block;
+  width: 330px;
+  margin: 0 auto;
+}
+
+.user-appear{
+  padding-top: 25px;
+  text-align: center;
+
+  img{
+    border-radius: 50%;
+    width: 65px;
+    box-shadow: 0 0 5px @loginBgColor;
+  }
+}
+
+.login-form-group{
+  margin: 8px 0;
+}
+
+.login-submit{
+  margin-top: 20px;
+}
