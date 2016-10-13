@@ -1,0 +1,88 @@
+@imgSrc: '/img/';
+//主色调
+@mainThemeColor: #a1e8d1;
+
+//禁止时字体颜色
+@disabledColor: #999;
+//主题颜色
+@mainColor: #222;
+
+html{
+  &.has-bg{
+    background: url("@{imgSrc}/main-bg.png") no-repeat @mainThemeColor center center;
+    background-size: cover
+  }
+}
+
+//上下左右居中
+.center(@width,@height){
+  width: @width;
+  height: @height;
+  top: 50%;
+  left: 50%;
+  margin-left: -@width/2;
+  margin-top: -@height/2;
+}
+
+//清除浮动
+.clearfix{
+  &:after{
+    content: '';
+    display: block;
+    height: 0;
+    clear: both;
+  }
+}
+
+//输入框默认样式
+.form-control{
+  width: 100%;
+  height: 38px;
+  border: 1px solid #d0d0d0;
+  border-radius: 5px;
+  color: inherit;
+  font-size: inherit;
+  padding-left: 8px;
+  outline: none;
+  box-sizing: border-box;
+
+  &:focus{
+    border: 1px solid @mainThemeColor;
+    box-shadow: 0 0 2px @mainThemeColor;
+  }
+}
+
+//按钮样式
+.btn{
+  display: inline-block;
+  box-sizing: border-box;
+  width: 100%;
+  height: 38px;
+  line-height: 38px;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  font-size: 16px;
+  border:none;
+
+  &:disabled{
+    background-color: #adadad;
+    cursor: default;
+  }
+
+  &:active{
+    -webkit-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.6);
+    -moz-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.6);
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.6);
+  }
+}
+
+
+
+.btn-submit{
+  background-color: #6176c4;
+  color: #fff;
+}
+
+
+
