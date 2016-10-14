@@ -4,7 +4,9 @@ var gulp = require('gulp'),
     sourcemaps = require('gulp-sourcemaps'),
     notify = require('gulp-notify'),
     plumber = require('gulp-plumber'),
-    concat = require('gulp-concat');
+    concat = require('gulp-concat'),
+    babel = require('gulp-babel'),
+    uglify = require('gulp-uglify');
 
 gulp.task('styles', function () {
     gulp.src('views/**/*.less')
@@ -19,9 +21,9 @@ gulp.task('styles', function () {
 
 gulp.task('scripts', function () {
     gulp.src('views/**/*.js')
-        .pipe(sourcemaps.init())
-        .pipe(concat('main.js'))
-        .pipe(sourcemaps.write())
+        .pipe(babel({
+            presets: ["es2015", "es2016", "stage-3"]
+        }))
         .pipe(uglify())
         .pipe(gulp.dest('public/js'));
 });
@@ -40,10 +42,10 @@ gulp.task('watch', function () {
         }
     });
 
-    // gulp.watch('src/views/**/*.js', function (event) {
-    //     if(isOnlyChange(event)){
-    //         gulp.start('scripts');
-    //     }
-    // })
+    gulp.watch('views/**/*.js', function (event) {
+        if(isOnlyChange(event)){
+            gulp.start('scripts');
+        }
+    })
 
 });
