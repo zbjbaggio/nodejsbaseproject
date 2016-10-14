@@ -3,8 +3,8 @@
  */
 
 var mysql = require('mysql');
-var $db = require('../conf/db');
-var $util = require('../util/util');
+var $db = require('../../conf/db');
+var $util = require('../../util/util');
 var user = require('./userSqlMapping');
 
 var pool = mysql.createPool($util.extend({}, $db.mysql));
@@ -76,12 +76,20 @@ module.exports = {
             return;
         }
         pool.getConnection(function (err, connection) {
-            console.log(param.id);
             connection.query(user.queryById, [param.id], function (err, result) {
                 res.render('userView', {
                     title: '用户资料',
                     result: result
                 }); // 第二个参数可以
+                connection.release();
+            });
+        });
+    },
+    queryByName: function (name) {
+        let user;
+        pool.getConnection(function (err, connection) {
+            connection.query(user.queryByName, [name], function (err, result) {
+                user = result[0];
                 connection.release();
             });
         });
