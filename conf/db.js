@@ -9,5 +9,11 @@ module.exports = {
         password: '123456',
         port: 3306,
         database: 'sxtx1'
+    },
+    redis: {
+      host:"192.168.101.2",
+      port:"6379"
     }
 };
+
+
